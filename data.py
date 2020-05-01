@@ -53,22 +53,23 @@ class PadSize(transforms.Pad):
 
 
 
-traindir = '/Users/aradillas/processed_images'
 
 
-train_dataset = datasets.ImageFolder(
+if __name__ == '__main__':
+    traindir = '/Users/aradillas/processed_images'
+
+    train_dataset = datasets.ImageFolder(
         traindir,
         transforms.Compose([
             transforms.Resize(80),
-            PadSize(size=(100,80)),
+            PadSize(size=(100, 80)),
             transforms.ToTensor(),
         ]))
 
-loader = T.utils.data.DataLoader(dataset=train_dataset,
+    loader = T.utils.data.DataLoader(dataset=train_dataset,
                                      batch_size=10,
                                      shuffle=False)
 
-if __name__ == '__main__':
     for x,y in loader:
         Image.fromarray(x[0,0,:,:].numpy()*255).show()
 

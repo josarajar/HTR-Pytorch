@@ -3,3 +3,7 @@
 __pycache__/
 tmp/
 venv/
+._.DS_Store
+._results.csv
+._transcriptions.txt
+results.csv
